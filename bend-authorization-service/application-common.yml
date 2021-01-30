@@ -1,0 +1,59 @@
+bend-platform:
+    settings:
+        general:
+            name: Bend-Authorization-Service
+            description: This Micro-Service responsible for authorization and authentication only.
+            service-id: bas
+        security:
+            cors:
+                active: false
+        utility:
+            sql-fetch:
+                domain-packages: [ bend.library.domain.entity ]
+        server:
+            physical-location:
+                server-ip: 172.18.57.193
+                server-mac: 00-15-5D-43-CE-C7
+                machine-id: DESKTOP-VH49F6R
+                docker-image-name: 'bend-authorization-service:latest'
+                docker-image-id: 438493748234f9
+                docker-container-name: bend-authorization-service-container
+                docker-container-id: 438493748234f98u35893yhr93832490ur39u348htr98348343u593uj958u358
+                docker-container-short-id: 5389539u5jd4
+                kubernetes: kube-4324543-2332
+                others:
+                    pc-username: lemon
+                    pc-brand: Lenovo-Thinkpad
+                    pc-color: Black
+                    processor: Core-i5 8th gen
+                    ram: 8GB
+                    server-station: Western-california
+                    service-id: ${spring.application.name}
+                    service-context: ${server.servlet.context-path}
+                    profiles: ${spring.profiles.active}, ${spring.profiles.include}
+    database:
+        routing-database:
+            active: true
+            active-all-route: false
+            selected-route-schema-keys: [ bcd ]
+            default-schema-key: bcd
+        migration:
+            active: true
+        hibernate:
+            annotated-packages:
+                - bend.library.domain.cluster.entity
+        jpa:
+            repository-locations:
+                - bend.library.domain.cluster.repositories
+spring:
+    profiles:
+        include: actuator
+server:
+    servlet:
+        context-path: /bend-authorization-service
+    port: 8222
+info:
+    app:
+        name: ${bend-platform.settings.general.name}
+        description: ${bend-platform.settings.general.description}
+        version: ${bend-platform.settings.general.version}

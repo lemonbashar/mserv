@@ -1,0 +1,5 @@
+#Enabled All Facilities for Only Production
+
+spring:
+  profiles:
+    include: common, postgre, migration

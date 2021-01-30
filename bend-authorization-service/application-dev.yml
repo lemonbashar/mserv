@@ -1,0 +1,5 @@
+#Enabled All Facilities for development, Testing & Debugging
+
+spring:
+  profiles:
+    include: common, migration, postgre, api-docs
